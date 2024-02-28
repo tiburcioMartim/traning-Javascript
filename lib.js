@@ -26,7 +26,10 @@ como IIFE (Immediately Invoked Function Expression).
 
 Porém está dando conflito com o console.log acima
 */
-(function teste() {console.log("Esta é uma função anônima sendo chamada imediatamente.");}) ();
+// IIFE Immmediately Invoked Function Expression
+(function funcOne(){
+    return console.log('Hello World')
+}) ();
 
 
 
