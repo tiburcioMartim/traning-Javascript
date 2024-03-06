@@ -1,5 +1,4 @@
 //Checks if a string is palindromo
-
 function isPalindromo(frase) {
     const fraseFormatada = frase.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
 

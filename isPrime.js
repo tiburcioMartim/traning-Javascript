@@ -1,5 +1,4 @@
 //Checks if a number is prime 
-
 function isPrime(n) {
   if (n <= 1) {
     return false
