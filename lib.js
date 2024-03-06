@@ -1,42 +1,27 @@
-//  (...args) é usado para representar um número indefinido de argumentos passados para uma função como um array. 
-//Esse operador é chamado de "rest parameter" (parâmetro rest) e 
-//permite que uma função receba um número variável de argumentos em forma de array.
+//Check if a number is prime
+function isPrime(n) {
+    if (n <= 1) {
+        return false
+    };
 
-//Criar uma função que imprime 'Hello Word'
-const helloWord = function hello() {
-    return function (...args) {
-        return '                                                                                                                Hello Word';
-    }
-}
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) {
+            return false;
+        };
+    };
+    return n;
+};
 
-const outHello = helloWord() // instanciando a function helloWord para pode exibir seu conteúdo
-console.log(outHello())
+//Check if a string is palindromo
+function isPalindromo(s) {
+    const stringFomated = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
 
+    for (let i = 0; i < stringFomated.lenght / 2; i++){
+        if (stringFomated[i] !== stringFomated[stringFomated.lenght -1 -i]) {
+            return false;
+        };
+    };
+    return true;
+};
 
-
-
-
-
-//================================{ (IIFE) IMMEDIATELY INVOKED FUNCTION EXPRESSION ================================//
-/*
-Para chamar uma função anônima em JavaScript sem atribuí-la a uma variável, 
-você pode simplesmente envolver a definição da função anônima entre parênteses 
-e adicionar () no final para invocá-la imediatamente. Esse padrão é conhecido 
-como IIFE (Immediately Invoked Function Expression).
-
-Porém está dando conflito com o console.log acima
-*/
-// IIFE Immmediately Invoked Function Expression
-(function funcOne(){
-    return console.log('Hello World')
-}) ();
-
-
-
-
-
-//====================================={ REFATORADO PARA ARROW FUNCTION }=====================================//
-
-const oiMundo = () => (...args) => 'Hello Word'; // Criando uma instância da função retornada
-const saidaOi = oiMundo(); // Chamando a função retornada
-console.log(saidaOi()); // Output: 'Hello Word'
+module.exports = { isPrime, isPalindromo };
