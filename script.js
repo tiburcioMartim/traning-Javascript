@@ -2,23 +2,19 @@
 // identificar o primo gemeo 2 caracters imediatamente ao lado. Exe.: 11 e 13
 const { isPrime } = require("./lib")
 
+function isPrimeTwin(n) {
+    let p1 = 0;
+    let p2 = 0;
 
-
-const numberTest = 50
-let prime1
-let prime2
-
-for (let i = 0; i < numberTest; i++) {
-    if (isPrime(i) !== false) {
-        prime2 = prime1 - i
-        prime1 = i
-        if (prime1 === 2) {
-            //é primo gemeo
-            console.log(isPrime(i));
+    for (let i = 3; i < n; i++) {
+        if (isPrime(i) !== false) {
+            p1 = i - p2;
+            p2 = i;
+            if (p1 === 2) {
+                console.log(`Primos gêmeos: ${i - 2} e ${p2}`);
+            };
         };
     };
 };
 
-
-
-
+console.log(isPrimeTwin(50))
